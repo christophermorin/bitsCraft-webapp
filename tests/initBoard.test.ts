@@ -26,7 +26,7 @@ describe("board populated correctly", () => {
     expect(defaultBoard[0][14]).toBe(" 14");
   })
   test("board is populated with default tiles", () => {
-    expect(defaultBoard[1][1]).toBe(" ⬛");
+    expect(defaultBoard[1][1]).toBe(" . ");
   })
 });
 
