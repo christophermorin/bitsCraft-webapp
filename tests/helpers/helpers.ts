@@ -1,4 +1,4 @@
-import { initBoard } from "../../src/classes/initBoard";
+import { InitBoard } from "../../src/classes/InitBoard";
 
-const init = new initBoard(4,4);
-export const gameBoard = init.buildBoard();
+const init = new InitBoard(10,10);
+export const helperGameBoard = init.buildBoard();

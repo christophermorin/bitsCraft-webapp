@@ -16,4 +16,18 @@
 - 3. Select random point is tested
 - 4. Print out board is tested
 
-- 1. buildCliffs IS NOT TESTED.
+NOTE:::
+-You can create a buildTerrain class, with private functions for all the terrain types
+and then call those functions like:
+this.buildCliffs(this.board);
+this.buildWater(this.board);
+
+I think, this.board will be updated each time, so passing buildWater this.board, would be a version of board with cliffs.
+The class then returns out the new board with all terrain set.
+
+TODO:
+-Test teardowns
+
+Design Choices:
+
+Do I use dependencie injection with my terrainBuilder class, passing in the walk/place tile function. Or, do I make the walk/place function a private function of my class?

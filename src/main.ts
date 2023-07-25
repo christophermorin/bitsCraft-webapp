@@ -1,22 +1,23 @@
-import { initBoard } from "./classes/initBoard";
+import { InitBoard } from "./classes/InitBoard";
+import { TerrainBuilder } from "./classes/terrain/TerrainBuilder";
 import { printBoard } from "./classes/utils/printBoard";
-import { buildCliffs } from "./classes/terrain/buildCliffs";
 
 // initialize an empty board of specified size
-const init = new initBoard(100, 60);
+const init = new InitBoard(20, 40);
 // populate board with axis labels, and defaul terrain
 const defaultBoard = init.buildBoard();
 
+function buildImpassableTerrain (){
+  const builder = new TerrainBuilder(defaultBoard);
+    for (let i = 0; i < 3; i++){
+      builder.buildTerrain(" 🗻", 0.03);
+      builder.buildTerrain(" 🌲", 0.02);
+    }
+    for (let i = 0; i < 3; i++){
+    }
+    
+}
 
-// Adds cliffs to the baord
-const cliffs1 = buildCliffs(defaultBoard);
-const cliffs2 = buildCliffs(cliffs1);
-const cliffs3 = buildCliffs(cliffs2);
-// build terrain
-  // pass gameboard to terrain class
-  // 
-
-
-// print the gameBoard
-console.log(printBoard(cliffs3))
+buildImpassableTerrain()
+console.log(printBoard(defaultBoard))
 
