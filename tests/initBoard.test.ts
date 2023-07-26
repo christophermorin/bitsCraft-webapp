@@ -1,5 +1,5 @@
 import {expect, jest, test} from '@jest/globals';
-import { InitBoard } from "../src/classes/InitBoard";
+import { InitBoard } from "../src/setup/InitBoard";
 
 describe("init new game board", () => {
   test('game board has height and width values', () => {
@@ -19,14 +19,15 @@ describe("board populated correctly", () => {
     expect(defaultBoard[0]).toHaveLength(15);
   });
   test("X,Y axis have aligned indices lables", () => {
-    expect(defaultBoard[3][0]).toBe(" 3 ");
-    expect(defaultBoard[0][3]).toBe("  3");
+    // All indices are bolded and magenta color
+    expect(defaultBoard[3][0]).toBe("\x1b[35m" + "\x1b[1m" + " 3 " + "\x1b[0m");
+    expect(defaultBoard[0][3]).toBe("\x1b[35m" + "\x1b[1m" + "  3" + "\x1b[0m");
 
-    expect(defaultBoard[14][0]).toBe(" 14");
-    expect(defaultBoard[0][14]).toBe(" 14");
-  })
+    expect(defaultBoard[14][0]).toBe("\x1b[35m" + "\x1b[1m" + " 14" + "\x1b[0m");
+    expect(defaultBoard[0][14]).toBe("\x1b[35m" + "\x1b[1m" + " 14" + "\x1b[0m");
+  });
   test("board is populated with default tiles", () => {
     expect(defaultBoard[1][1]).toBe(" . ");
-  })
+  });
 });
 

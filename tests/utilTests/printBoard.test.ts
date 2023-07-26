@@ -1,15 +1,15 @@
 import {expect, jest, test} from '@jest/globals';
-import { helperGameBoard } from "../helpers/helpers";
-import { printBoard } from "../../src/classes/utils/printBoard";
+import { defaultBoard } from '../helpers/testBoards';
+import { printBoard } from "../../src/utils/printBoard";
 
 describe("Prints correct board to console", () => {
-  test("Print board of size 4x4", () => {
+  test("Print board of size 20x30", () => {
+    const testBoard = defaultBoard();
     let out: string = ""
-    for (let i = 0; i < helperGameBoard.length; i++) {
-    out += `${helperGameBoard[i].join("")}\n`
+    for (let i = 0; i < testBoard.length; i++) {
+      out += `${testBoard[i].join("")}\n`
   }
-  
-    expect(printBoard(helperGameBoard)).toEqual(out);
+    expect(printBoard(testBoard)).toEqual(out);
   }),
   test("passing invalid board fails", () => {
     const out = printBoard(null);

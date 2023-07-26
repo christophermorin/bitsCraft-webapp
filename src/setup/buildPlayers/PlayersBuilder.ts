@@ -1,6 +1,6 @@
 import { GameBoard } from "../../../types/main";
 
-export class PlacePlayers {
+export class PlayerBuilder {
   private board: GameBoard;
 
   constructor(board: GameBoard) {
@@ -13,13 +13,14 @@ export class PlacePlayers {
   }
   // place player one
   private placePlayerOne(){
-    const {y, x} = this.getBaseLocation(1);
+    const {y, x} = this.setBaseLocation(1);
     const baseDirs = [
       [0, 0],
       [0, 1],
       [1, 1],
       [1, 0]
     ]
+  
     const nodeDirs = [
       [-1,-1],
       [-1, 0],
@@ -38,9 +39,9 @@ export class PlacePlayers {
       this.board[y+move[0]][x+move[1]] = " 💎";
     }
   }
-  // place player two
+
   private placePlayerTwo(){
-    const {y, x} = this.getBaseLocation(2);
+    const {y, x} = this.setBaseLocation(2);
     const baseDirs = [
       [0, 0],
       [0, 1],
@@ -65,8 +66,7 @@ export class PlacePlayers {
     }
   }
 
-  // select point
-  private getBaseLocation(player: number) {
+  private setBaseLocation(player: number) {
     let yPos: number = 0;
     let xPos: number = 0;
 

@@ -1,4 +1,4 @@
-import { GameBoard } from "../../../types/main";
+import { GameBoard } from "../../types/main";
 
 export function printBoard(board: GameBoard | null) {
   if (!board){

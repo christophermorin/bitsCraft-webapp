@@ -2,32 +2,56 @@
 
 1. Init a board with a given height and width.
 2. Populate that board with default tiles, and indice lables across the Y and X axis.
-3. Pass that default board to a add cliffs function that adds a random amount of "impassable" cliffs to the board. 4. I have a getRandomPoint helper func set up to select a point on the board and build cliffs from there.
+3. Pass default board to build terrain
+4. Pass board with terrain to player builder, place two player positions
+5. Pass board to resource builder. Builds nodes across the center line at regular X pos, and (centerNodes / 2) amount of nodes in each the top/bottom half and random X pos points.
 
-4. Continued:
-   - Currently no way to run buildCliffs multiple times.
-   - The area and maybe percentage chance of creating a cliff must depend on the board size.
-   - I need to remove the limitation of not creating impassable terrain below row 5 or above row(height - 5)
+## Algos/DS used so far
 
-## Test:
+- Variation of the maze runner for terrain and player placements
 
-- 1. Init board is tested
-- 2. Populate default board is tested
-- 3. Select random point is tested
-- 4. Print out board is tested
+## TODO:
 
-NOTE:::
--You can create a buildTerrain class, with private functions for all the terrain types
-and then call those functions like:
-this.buildCliffs(this.board);
-this.buildWater(this.board);
-
-I think, this.board will be updated each time, so passing buildWater this.board, would be a version of board with cliffs.
-The class then returns out the new board with all terrain set.
-
-TODO:
 -Test teardowns
 
-Design Choices:
+## Design Choices: ---- Hey dummy. Actually read these over time ----
 
-Do I use dependencie injection with my terrainBuilder class, passing in the walk/place tile function. Or, do I make the walk/place function a private function of my class?
+1. Do I use dependencie injection with my TerrainBuilder class, passing in the walk/place tile function. Or, do I make the walk/place function a private method of my class?
+   [x] - I opted to reduce external dependencies in my classes and use private methods instead. Happy accident that it condensed and reduced the scan/place terrain functions I had build previously.
+   [x] - It also GREATLY reduced my tests. Since my methods are private, my tests needs now only check that the one public method on each class (their build methods) returns the desired results.
+
+2. Do I use recursion to do the scanning process when placing terrain and resource nodes, or do it with iteration?
+   [x] - I went with an interate approach. Recursion was fun but the iteration avoids any stack overflow (I had checks in place to avoid this anyways), and once again it made my methods much more compact and more SRP.
+   .
+   .
+   .
+   .
+   .
+   .
+   .
+   .
+   .
+   .
+   .
+   .
+   .
+   .
+   .
+
+Slightly Behind The Times dev journey:
+
+- A few moments prior...
+  - Built the default board init, TerrainBuilder (see design choices above), and PlayerBuilder classes. TDD the whole way down.
+
+#### 26/07/23
+
+DID:
+
+- Resource builder places an evenly distributed amount of nodes on the center line. Amount of nodes based on map width.
+- Changed indice numbers style to bold magenta, because why not.
+- Depending on how many resource were placed on center line, the builder now places HALF that amount in both the top half and bottom half
+  of the map on a random X axis position, and -5/+5 Y position from center line. **can lead to unfair advantages for one player POS over another**
+- ResourceBuilder tested
+- All tests refactored to use board build helper functions
+- Map build complete?
+- Start of user interaction
