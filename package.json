@@ -7,8 +7,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npm run jest && tsc",
+    "dev": "tsc",
     "jest": "jest",
-    "dev": "cd ./dist && node main.js"
+    "play": "cd ./dist && node main.js"
   },
   "author": "CM",
   "license": "MIT",
