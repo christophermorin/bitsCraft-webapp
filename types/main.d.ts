@@ -1,4 +1,4 @@
-export type GameBoard = string[][];
+export type GameBoard = Tile[][];
 
 export type Tile = {
   face: string, // 🗻💎 . etc

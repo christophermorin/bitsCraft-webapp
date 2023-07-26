@@ -12,11 +12,11 @@ describe("TerrainBuilder and methods", () => {
   }),
   test("Calling buildTerrain places adverse terrain", () => {
     const builder = new TerrainBuilder(defaultBoard());
-    const withoutAdverse = builder.board.findIndex((tile, i) => tile[i] === " 🗻");
+    const withoutAdverse = builder.board.findIndex((tile, i) => tile[i].face === " 🗻");
     expect(withoutAdverse).toBe(-1);
 
     builder.buildTerrain(" 🗻");
-    const withAdverse = builder.board.findIndex((tile, i) => tile[i] === " 🗻");
+    const withAdverse = builder.board.findIndex((tile, i) => tile[i].face === " 🗻");
     expect(withAdverse).toBeDefined();
   })
 })

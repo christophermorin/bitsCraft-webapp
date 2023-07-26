@@ -20,14 +20,14 @@ describe("board populated correctly", () => {
   });
   test("X,Y axis have aligned indices lables", () => {
     // All indices are bolded and magenta color
-    expect(defaultBoard[3][0]).toBe("\x1b[35m" + "\x1b[1m" + " 3 " + "\x1b[0m");
-    expect(defaultBoard[0][3]).toBe("\x1b[35m" + "\x1b[1m" + "  3" + "\x1b[0m");
+    expect(defaultBoard[3][0].face).toBe("\x1b[35m" + "\x1b[1m" + " 3 " + "\x1b[0m");
+    expect(defaultBoard[0][3].face).toBe("\x1b[35m" + "\x1b[1m" + "  3" + "\x1b[0m");
 
-    expect(defaultBoard[14][0]).toBe("\x1b[35m" + "\x1b[1m" + " 14" + "\x1b[0m");
-    expect(defaultBoard[0][14]).toBe("\x1b[35m" + "\x1b[1m" + " 14" + "\x1b[0m");
+    expect(defaultBoard[14][0].face).toBe("\x1b[35m" + "\x1b[1m" + " 14" + "\x1b[0m");
+    expect(defaultBoard[0][14].face).toBe("\x1b[35m" + "\x1b[1m" + " 14" + "\x1b[0m");
   });
   test("board is populated with default tiles", () => {
-    expect(defaultBoard[1][1]).toBe(" . ");
+    expect(defaultBoard[1][1].face).toBe(" . ");
   });
 });
 

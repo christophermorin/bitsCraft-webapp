@@ -19,6 +19,7 @@ async function initGame(){
 
   // start game
     // takes in the created gameboard
+    
   console.log(printBoard(gameboard))
 }
 
@@ -35,13 +36,4 @@ async function main(){
   return
 }
 
-
 main()
-
-
-
-
-
-
-
-

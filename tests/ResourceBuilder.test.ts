@@ -31,21 +31,21 @@ describe("Resource nodes are placed correctly", () => {
   test("Center line nodes placed", () => {
     const center = Math.floor(testBoard.length / 2);
     const centerRow = testBoard[center];
-    const hasNodes = centerRow.filter(tile => tile === " 💎");
+    const hasNodes = centerRow.filter(tile => tile.face === " 💎");
     expect(hasNodes).toHaveLength(3);
   });
   test("Top half nodes placed", () => {
     const center = Math.floor(testBoard.length / 2);
     const topRow = testBoard[center - Math.floor(center / 2)];
 
-    const hasNodes = topRow.filter(tile => tile === " 💎");
+    const hasNodes = topRow.filter(tile => tile.face === " 💎");
     expect(hasNodes).toHaveLength(1);
   });
   test("Bottom half nodes placed", () => {
     const center = Math.floor(testBoard.length / 2);
     const bottomRow = testBoard[center + Math.floor(center / 2)];
 
-    const nodes = bottomRow.filter(tile => tile === " 💎");
+    const nodes = bottomRow.filter(tile => tile.face === " 💎");
     expect(nodes).toHaveLength(1);
   });
   

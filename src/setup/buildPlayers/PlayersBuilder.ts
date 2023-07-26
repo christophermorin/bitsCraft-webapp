@@ -31,12 +31,12 @@ export class PlayerBuilder {
     for (let i = 0; i < baseDirs.length; i++){
       let move = baseDirs[i];
       // Sets HQ color to blue, bold, then resets back to default. Reset prevents all text after HQ from also turning blue.
-      this.board[y+move[0]][x+move[1]] = "\x1b[34m" + "\x1b[1m" +  " HQ" + "\x1b[0m";
+      this.board[y+move[0]][x+move[1]].face = "\x1b[34m" + "\x1b[1m" +  " HQ" + "\x1b[0m";
     }
 
      for (let i = 0; i < nodeDirs.length; i++){
       let move = nodeDirs[i];
-      this.board[y+move[0]][x+move[1]] = " 💎";
+      this.board[y+move[0]][x+move[1]].face = " 💎";
     }
   }
 
@@ -57,12 +57,12 @@ export class PlayerBuilder {
     for (let i = 0; i < baseDirs.length; i++){
       let move = baseDirs[i];
       // Sets HQ color to red, bold, then resets back to default. Reset prevents all text after HQ from also turning red.
-      this.board[y+move[0]][x+move[1]] = "\x1b[31m" + "\x1b[1m" +  " HQ" + "\x1b[0m";
+      this.board[y+move[0]][x+move[1]].face = "\x1b[31m" + "\x1b[1m" +  " HQ" + "\x1b[0m";
     }
 
     for (let i = 0; i < nodeDirs.length; i++){
       let move = nodeDirs[i];
-      this.board[y+move[0]][x+move[1]] = " 💎";
+      this.board[y+move[0]][x+move[1]].face = " 💎";
     }
   }
 

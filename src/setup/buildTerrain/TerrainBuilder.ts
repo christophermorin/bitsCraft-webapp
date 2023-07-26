@@ -37,7 +37,7 @@ export class TerrainBuilder {
       }
 
       seen[point.y][point.x] = true;
-      board[point.y][point.x] = terrain;
+      board[point.y][point.x].face = terrain;
     }
 
   }

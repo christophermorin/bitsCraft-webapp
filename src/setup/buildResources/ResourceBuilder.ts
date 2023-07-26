@@ -74,7 +74,7 @@ export class ResourceBuilder {
 
     for (let i = 0; i < dir.length; i++) {
       const [y, x] = dir[i];
-      if (this.board[point.y + y][point.x + x] !== " 🗻") {
+      if (this.board[point.y + y][point.x + x].face !== " 🗻") {
         return true;
       }
     }
@@ -82,6 +82,6 @@ export class ResourceBuilder {
   }
 
   private place(point: { y: number; x: number }): void {
-    this.board[point.y][point.x] = " 💎";
+    this.board[point.y][point.x].face = " 💎";
   }
 }

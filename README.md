@@ -55,3 +55,11 @@ DID:
 - All tests refactored to use board build helper functions
 - Map build complete?
 - Start of user interaction
+
+---
+
+- Unexpected early major overhall of tiles
+  - Each tile is now an object node. This was done in anticipation of user actions on each node during the game loop
+  - Tests refactored to use the Tile.face property to match tile string values when building/scanning the board.
+
+---
