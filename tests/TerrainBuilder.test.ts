@@ -12,11 +12,21 @@ describe("TerrainBuilder and methods", () => {
   }),
   test("Calling buildTerrain places adverse terrain", () => {
     const builder = new TerrainBuilder(defaultBoard());
-    const withoutAdverse = builder.board.findIndex((tile, i) => tile[i].face === " 🗻");
-    expect(withoutAdverse).toBe(-1);
-
     builder.buildTerrain(" 🗻");
-    const withAdverse = builder.board.findIndex((tile, i) => tile[i].face === " 🗻");
-    expect(withAdverse).toBeDefined();
+    // Not a good test at all, using a nested loop. Bad bad bad.
+    let hasTerrain: boolean = false;
+    for (let i = 0; i < builder.board.length; i++){
+      for (let j = 0; j < builder.board[0].length; j++){
+        if(builder.board[i][j].face === " 🗻"){
+          hasTerrain = true;
+          break;
+        }
+      }
+    }
+    expect(hasTerrain).toBe(true);
+  });
+  test("buildTerrain throws error when not passed a terrain", () => {
+    const builder = new TerrainBuilder(defaultBoard());
+    expect(() => builder.buildTerrain("")).toThrowError("Terrain Builder requires a terrain: 🗻, 🌲")
   })
 })

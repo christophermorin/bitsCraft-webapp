@@ -12,15 +12,6 @@ describe("ResourceBuilder init", () => {
   });
 })
 
-// describe("Conditional checks in private methods", () => {
-//   let testBoard: GameBoard = [];
-//   beforeEach(() => {
-//     testBoard = buildTestBoard()
-//     const instance = new ResourceBuilder(testBoard);
-//     instance.buildNodes();
-//   });
-// })
-
 describe("Resource nodes are placed correctly", () => {
   let testBoard: GameBoard = [];
   beforeEach(() => {

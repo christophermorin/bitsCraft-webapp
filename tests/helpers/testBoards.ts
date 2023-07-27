@@ -1,7 +1,10 @@
 import { InitBoard } from "../../src/setup/InitBoard";
-import { PlayerBuilder } from "../../src/setup/buildPlayers/PlayersBuilder";
-import { TerrainBuilder} from "../../src/setup/buildTerrain/TerrainBuilder"
+import { PlayerPositions } from "../../src/setup/buildPlayers/PlayersPositions";
+import { TerrainBuilder} from "../../src/setup/buildTerrain/TerrainBuilder";
 import { GameBoard } from "../../types/main";
+
+const init = new InitBoard(20,30);
+export const helperGameBoard = init.buildBoard();
 
 export function defaultBoard(): GameBoard{
   const init = new InitBoard(20,30);
@@ -23,7 +26,8 @@ export function boardWithTerrain(): GameBoard{
 
 export function boardWithTerrainPlayers(): GameBoard {
   const testBoard = boardWithTerrain();
-  const builder = new PlayerBuilder(testBoard);
+  const builder = new PlayerPositions(testBoard);
+
   builder.buildPlayerPositions();
 
   return testBoard;

@@ -8,6 +8,9 @@ export class TerrainBuilder {
   }
 
   buildTerrain(terrain: string) {
+    if (!terrain){
+      throw new Error("Terrain Builder requires a terrain: 🗻, 🌲");
+    }
     this.placeTerrainTile(this.board, terrain);
   }
 
@@ -15,6 +18,7 @@ export class TerrainBuilder {
     const seen = Array.from({ length: board.length }, () =>
       Array<boolean>(board[0].length).fill(false)
     );
+    
     let point = this.getStartPoint(board.length, board[0].length);
 
     for (let i = 0; i < 20; i++) {
@@ -38,6 +42,13 @@ export class TerrainBuilder {
 
       seen[point.y][point.x] = true;
       board[point.y][point.x].face = terrain;
+      
+      if (terrain === " 🗻"){
+        board[point.y][point.x].impassable = true;
+        board[point.y][point.x].terrain = "mountain";
+      } else {
+        board[point.y][point.x].terrain = "forest";
+      }
     }
 
   }

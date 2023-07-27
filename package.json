@@ -7,7 +7,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npm run jest && tsc",
-    "dev": "tsc",
+    "dev": "tsc && cd ./dist && node main.js",
     "jest": "jest",
     "play": "cd ./dist && node main.js"
   },

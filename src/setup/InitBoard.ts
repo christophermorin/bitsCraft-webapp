@@ -13,20 +13,13 @@ export class InitBoard {
 
   buildBoard() {
     // Build board with default tiles and col/row labels
-    const defaultTile: Tile = {
-      face: " . ",
-      terrain: "open",
-      health: null,
-      value: null,
-    };
-    // this.board = Array.from({ length: this.height }, () =>
-    //   Array<Tile>(this.width).map(() => this.createNode())
-    // );
+    let yPos = 0;
     this.board = Array.from({ length: this.height }, () => {
       const row: Tile[] = [];
       for (let i = 0; i < this.width; i++) {
-        row.push(this.createNode());
+        row.push(this.createNode(yPos, i));
       }
+      yPos++
       return row;
     });
 
@@ -37,6 +30,7 @@ export class InitBoard {
   private setIndiceLables(height: number, width: number) {
     // Y axis
     for (let i = 0; i < height; i++) {
+      this.board[i][0].isBorder = true;
       if (i > 9) {
         this.board[i][0].face = "\x1b[35m" + "\x1b[1m" + ` ${i}` + "\x1b[0m";
       } else {
@@ -45,6 +39,7 @@ export class InitBoard {
     }
     // X axis
     for (let i = 0; i < width; i++){
+      this.board[0][i].isBorder = true;
       if (i > 9){
         this.board[0][i].face = "\x1b[35m" + "\x1b[1m" + ` ${i}` + "\x1b[0m";
       } else {
@@ -53,12 +48,17 @@ export class InitBoard {
     }
   }
 
-  private createNode(): Tile {
+  private createNode(y: number, x: number): Tile {
     const defaultTile: Tile = {
       face: " . ",
+      fog: " ⬛",
       terrain: "open",
+      impassable: false,
+      isBorder: false,
+      owner: null,
       health: null,
       value: null,
+      point: {y: y, x: x}
     };
     return defaultTile;
   }

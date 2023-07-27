@@ -1,39 +1,39 @@
 import { InitBoard } from "./setup/InitBoard";
 import { buildImpassableTerrain } from "./setup/buildTerrain";
-import { buildPlayerPositions } from "./setup/buildPlayers";
+import { buildPlayers } from "./setup/buildPlayers";
 import { buildResourceNodes } from "./setup/buildResources";
-
-
-import * as readline from 'node:readline/promises';
-import { stdin as input, stdout as output } from 'node:process';
-
-
 import { printBoard } from "./utils/printBoard";
+import { GameContext } from "../types/main";
 
-async function initGame(){
+import { startBitsCraft, nextAction } from "./userPrompts/gamePrompts";
+
+async function start(context: GameContext){
+  const gameStart = await startBitsCraft();
+  if (gameStart){
+    console.log(printBoard(context))
+    nextAction(context.board);
+  } else {
+    console.log("\nThanks for playing BitsCraft\n");
+  }
+}
+
+function initGame(){
   const init = new InitBoard(20, 30);
   const gameboard = init.buildBoard();
   buildImpassableTerrain(gameboard);
-  buildPlayerPositions(gameboard);
+  
+  const players = buildPlayers(gameboard);
   buildResourceNodes(gameboard);
+
+  const gameContext: GameContext = {
+    board: gameboard,
+    players: players
+  }
 
   // start game
     // takes in the created gameboard
-    
-  console.log(printBoard(gameboard))
+  start(gameContext)
 }
 
-async function main(){
-  const rl = readline.createInterface({ input, output });
-  const answer = await rl.question("Start game (y/n): ");
-  if (answer.toLowerCase() === 'y'){
-    initGame();
-  }
-  else{
-    console.log("\nOk, bye\n")
-  }
-  rl.close();
-  return
-}
 
-main()
+initGame()

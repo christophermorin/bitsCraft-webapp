@@ -1,20 +1,34 @@
-// Readline for build
+import * as readline from 'node:readline/promises';
+import { stdin as input, stdout as output } from 'node:process';
+import { actionsEmitter } from './emitter';
+import { GameBoard } from '../../types/main';
 
-// Call next move:
-  // User selects build
-    // Call builder prompt: Which buildng?
-      // User selects Barracks
-      // Call select Point
-          // Call confirm point
-              // If invalid, recall select Point
-// At all times has option to return to Next Move, or go back one menu.
+const rl = readline.createInterface({ input, output });
 
+export async function startBitsCraft(): Promise<boolean> {
+  const answer = await rl.question("Start game (y/n): ");
 
-// Call construct building function with type of building, locaton to build, current resources
-    // Construct building (could use a build que here)
-// Call end turn
-// Print new board
+  try{     
+     if(answer.toLowerCase() === "y"){
+      return true;
+     } else {
+      rl.close();
+      return false;
+     }
+  } catch (error) {
+    console.log("Failed on game start");
+    throw new Error()
+  }
+}
 
-// Perform computer movements
+export async function nextAction(board: GameBoard){
+  console.log("B) Build, M) Move, A) Attack, R) Main, Q) Quit")
+  const action = (await rl.question("Action: ")).toLowerCase()
 
-// Call Next Move
+  if(actionsEmitter.has(action)){
+    const userAction = actionsEmitter.get(action)
+    userAction(board, rl);
+  }
+
+  return
+}
