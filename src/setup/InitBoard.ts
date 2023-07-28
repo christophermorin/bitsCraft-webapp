@@ -51,7 +51,7 @@ export class InitBoard {
   private createNode(y: number, x: number): Tile {
     const defaultTile: Tile = {
       face: " . ",
-      fog: " ⬛",
+      fog: " ⚫",
       terrain: "open",
       impassable: false,
       isBorder: false,

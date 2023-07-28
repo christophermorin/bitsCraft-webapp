@@ -31,7 +31,7 @@ describe("board populated correctly", () => {
   })
   test("board inner tiles are populated with default values", () => {
     expect(defaultBoard[1][1].face).toBe(" . ");
-    expect(defaultBoard[1][1].fog).toBe(" ⬛");
+    expect(defaultBoard[1][1].fog).toBe(" ⚫");
     expect(defaultBoard[1][1].impassable).toBe(false);
     expect(defaultBoard[1][1].point).toEqual({y: 1, x: 1});
   });
