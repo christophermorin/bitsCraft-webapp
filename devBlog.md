@@ -27,42 +27,60 @@
 2. Do I use recursion to do the scanning process when placing terrain and resource nodes, or do it with iteration?
    [x] - I went with an interate approach. Recursion was fun but the iteration avoids any stack overflow (I had checks in place to avoid this anyways), and once again it made my methods much more compact and more SRP.
 
-3. Deciding how to interact with the game. At first a simple console interface with readline. Now looking into creating a bash script and named pipes (FIFO) into the program.
-   .
-   .
-   .
-   .
-   .
-   .
-   .
-   .
-   .
-   .
-   .
-   .
-   .
-   .
-   .
+3. Deciding how to interact with the game. At first a simple console interface with readline. Now looking into creating a bash script and named pipes (FIFO) into the program. \***\* Turns out readline has keypress events, now planning to use that \*\***
+
+4. On porting to a webapp. On client "New Game", server calls init game. "game loop" func would have to return the map to the client each time.
+
+- User action functions could be built in such a way that their input works for both console based and webapp requests. A check could be implemented whether game init is called by console or webapp/server.
+  .
+  .
+  .
+  .
+  .
+  .
+  .
+  .
+  .
+  .
+  .
+  .
+  .
+  .
+  .
 
 Slightly Behind The Times dev journey:
 
+### 29/07/23
+
+- Streams issues solved. Main menu is not interactive on key press, with user selection event listener is removed, freeing up the rl stream to query for point(y,x) to scan.
+- Tests build for current action funcs (scan, select point)
+
+#### 28/07/23
+
+- Overthinking the console menu system. Bash script not required. Reading through readline docs revealed keypress events.
+
+- Console game loop menus started.
+
+- Menu selection emitter build. Interactive main menu using keypress events
+- Many issues with streams, (having the rl stream, then setting up a stdin.on stream was causing conflicts)
+
 #### 27/07/23
 
--A bug remains in ResourceGenerator, stuck in an infinite loop during some game inits.
--------Could be occuring when EVERY tile surrounding scan point is a mountain?
+- A bug remains in ResourceGenerator, stuck in an infinite loop during some game inits.
+  -------Could be occuring when EVERY tile surrounding scan point is a mountain?
 
--User actions. Began working on the game loop for the players to build structures (bunkers, baracks, etc).
+- User actions. Began working on the game loop for the players to build structures (bunkers, baracks, etc).
 
--Added impassable, owner, fog, and point properties to Tile types. Adjusted board builders to assign values where needed.
+- Added impassable, owner, fog, and point properties to Tile types. Adjusted board builders to assign values where needed.
 
--While creating player positions(HQ's and resource nodes) created tiles are now assigned correct properties (using the above create propserties)
+- While creating player positions(HQ's and resource nodes) created tiles are now assigned correct properties (using the above create propserties)
 
--Created Player Type and player builder. Players have a name, headquarters array, with the coords of their HQ tiles, a resources count, and a visions array. Visions is a boolean array of [x,y] coords tracking if a player has revealed the tile at those coords. This will be used to create a fog of war effect.
+- Created Player Type and player builder. Players have a name, headquarters array, with the coords of their HQ tiles, a resources count, and a visions array. Visions is a boolean array of [x,y] coords tracking if a player has revealed the tile at those coords. This will be used to create a fog of war effect.
 
--Game context created. Includes gameboard, and player objects.
--Game board now prints with fog of war. Only tiles seen by the player reveal their terrain.
+- Game context created. Includes gameboard, and player objects.
+- Game board now prints with fog of war. Only tiles seen by the player reveal their terrain.
 
--All tests reworked, small changes for all. PlayerBuilder tests created.
+- All tests reworked, small changes for all. PlayerBuilder tests created.
 
 #### 26/07/23
 

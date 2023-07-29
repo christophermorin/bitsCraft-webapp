@@ -1,6 +1,7 @@
 import {expect, jest, test} from '@jest/globals';
 import { TerrainBuilder } from '../src/setup/buildTerrain/TerrainBuilder';
 import { defaultBoard } from './helpers/testBoards';
+import {buildImpassableTerrain} from '../src/setup/buildTerrain/index'
 
 describe("TerrainBuilder and methods", () => {
   test("Instance of class created with methods", () => {

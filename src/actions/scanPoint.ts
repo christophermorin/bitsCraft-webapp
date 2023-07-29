@@ -2,6 +2,11 @@ import { GameBoard } from "../../types/main";
 import { Tile } from "../../types/main";
 
 export function scanPoint(board: GameBoard, point: {y: number, x: number}): boolean {
+  
+  if (!board[point.y]){
+    return false;
+  }
+  
   const tile: Tile = board[point.y][point.x];
 
   // if (!tile.seen){
@@ -12,6 +17,5 @@ export function scanPoint(board: GameBoard, point: {y: number, x: number}): bool
   //   return false;
   // }
 
-  
-  return true
+  return true;
 }

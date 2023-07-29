@@ -30,3 +30,4 @@ export type Player = {
   vision: boolean[][],
   resources: number,
 }
+

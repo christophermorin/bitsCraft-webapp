@@ -1,4 +1,3 @@
-import { GameBoard } from "../../types/main";
 import { GameContext } from "../../types/main";
 
 export function printBoard(context : GameContext | null) {
@@ -24,5 +23,6 @@ export function printBoard(context : GameContext | null) {
     }
     out += `${row.join("")}\n`
   }
+
   return out;
 }

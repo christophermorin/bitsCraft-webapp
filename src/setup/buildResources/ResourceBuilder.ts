@@ -65,6 +65,7 @@ export class ResourceBuilder {
         this.centerNodesPlaced++;
         stepByTen += 10;
       } else {
+        stepByTen++
         continue;
       }
     }

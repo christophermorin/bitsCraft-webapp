@@ -5,7 +5,7 @@
   "main": "./dist/main.js",
  
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test-coverage": "jest --collectCoverageFrom=src/**/*.ts",
     "build": "npm run jest && tsc",
     "dev": "tsc && cd ./dist && node main.js",
     "jest": "jest",
