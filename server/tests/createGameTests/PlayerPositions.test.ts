@@ -1,7 +1,7 @@
 import {expect, jest, test, beforeEach, describe} from '@jest/globals';
-import { PlayerPositions } from '../src/createGame/buildPlayers/PlayersPositions';
+import { PlayerPositions } from '../../src/createGame/buildPlayers/PlayersPositions';
 
-import { boardWithTerrain } from './helpers/testBoards';
+import { boardWithTerrain } from '.././helpers/testBoards';
 
 describe("PlayerPositions class init", () => {
   test("Instance of PlayerPositions created", () => {

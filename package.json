@@ -4,11 +4,7 @@
   "description": "Bits Craft",
   "main": "./dist/main.js",
   "scripts": {
-    "test-coverage": "jest --collectCoverageFrom=src/**/*.ts",
-    "build": "npm run jest && tsc",
-    "dev": "tsc && cd ./dist && node main.js",
-    "jest": "jest",
-    "play": "cd ./dist && node main.js"
+    "build": "npm run jest && tsc"
   },
   "author": "CM",
   "license": "MIT",

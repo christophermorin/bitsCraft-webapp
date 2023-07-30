@@ -1,7 +1,7 @@
 import {expect, jest, describe, beforeEach, test} from '@jest/globals';
-import {ResourceBuilder} from '../src/createGame/buildResources/ResourceBuilder'
-import { boardWithTerrainPlayers } from './helpers/testBoards';
-import { GameBoard } from '../types/main';
+import {ResourceBuilder} from '../../src/createGame/buildResources/ResourceBuilder'
+import { boardWithTerrainPlayers } from '.././helpers/testBoards';
+import { GameBoard } from '../../types/main';
 
 describe("ResourceBuilder init", () => {
   test("ResourceBuilder instance created", () => {

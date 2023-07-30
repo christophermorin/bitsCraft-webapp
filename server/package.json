@@ -4,12 +4,14 @@
   "description": "Bits Craft",
   "main": "../dist/main.js",
   "scripts": {
-    "test": "npm run test",
-    "build": "npm run jest && tsc",
-    "dev": "tsc && cd ../dist && node main.js",
-    "jest": "jest",
-    "play": "cd ../dist && node main.js"
+    "test": "cd .. && npx jest --testPathPattern=server",
+    "build": "cd .. && npx jest --testPathPattern=server && cd ./server && tsc",
+    "dev": "tsc && cd ./dist/src && node server.js"
   },
   "author": "CM",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@types/node": "^20.4.5",
+    "fastify": "^4.21.0"
+  }
 }

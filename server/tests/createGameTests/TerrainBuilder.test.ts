@@ -1,6 +1,6 @@
 import {expect, jest, describe, test} from '@jest/globals';
-import { TerrainBuilder } from '../src/createGame/buildTerrain/TerrainBuilder';
-import { defaultBoard } from './helpers/testBoards';
+import { TerrainBuilder } from '../../src/createGame/buildTerrain/TerrainBuilder';
+import { defaultBoard } from '.././helpers/testBoards';
 
 describe("TerrainBuilder and methods", () => {
   test("Instance of class created with methods", () => {

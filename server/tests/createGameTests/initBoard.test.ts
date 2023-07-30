@@ -1,5 +1,5 @@
 import {expect, jest, test, describe} from '@jest/globals';
-import { InitBoard } from "../src/createGame/InitBoard";
+import { InitBoard } from "../../src/createGame/InitBoard";
 
 describe("init new game board", () => {
   test('game board has height and width values', () => {

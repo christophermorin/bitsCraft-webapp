@@ -1,6 +1,6 @@
 import {expect, jest, test, describe} from '@jest/globals';
-import { PlayerBuilder } from "../src/createGame/buildPlayers/PlayerBuilder"
-import { boardWithTerrainPlayers } from './helpers/testBoards';
+import { PlayerBuilder } from "../../src/createGame/buildPlayers/PlayerBuilder"
+import { boardWithTerrainPlayers } from '.././helpers/testBoards';
 
 describe("PlayerBuilder class init", () => {
   test("Instance of PlayerBuilder created", () => {
