@@ -1,6 +1,6 @@
-import { InitBoard } from "../../src/setup/InitBoard";
-import { PlayerPositions } from "../../src/setup/buildPlayers/PlayersPositions";
-import { TerrainBuilder} from "../../src/setup/buildTerrain/TerrainBuilder";
+import { InitBoard } from "../../src/createGame/InitBoard";
+import { PlayerPositions } from "../../src/createGame/buildPlayers/PlayersPositions";
+import { TerrainBuilder} from "../../src/createGame/buildTerrain/TerrainBuilder";
 import { GameBoard } from "../../types/main";
 
 const init = new InitBoard(20,30);

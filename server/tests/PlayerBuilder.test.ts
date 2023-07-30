@@ -1,5 +1,5 @@
-import {expect, jest, test} from '@jest/globals';
-import { PlayerBuilder } from "../src/setup/buildPlayers/PlayerBuilder"
+import {expect, jest, test, describe} from '@jest/globals';
+import { PlayerBuilder } from "../src/createGame/buildPlayers/PlayerBuilder"
 import { boardWithTerrainPlayers } from './helpers/testBoards';
 
 describe("PlayerBuilder class init", () => {

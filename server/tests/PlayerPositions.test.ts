@@ -1,5 +1,5 @@
-import {expect, jest, test} from '@jest/globals';
-import { PlayerPositions } from '../src/setup/buildPlayers/PlayersPositions';
+import {expect, jest, test, beforeEach, describe} from '@jest/globals';
+import { PlayerPositions } from '../src/createGame/buildPlayers/PlayersPositions';
 
 import { boardWithTerrain } from './helpers/testBoards';
 

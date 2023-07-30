@@ -1,5 +1,5 @@
-import {expect, jest, test} from '@jest/globals';
-import { buildGameContext } from '../src/setup/buildGameContext'
+import {expect, jest, test, describe} from '@jest/globals';
+import { buildGameContext } from '../src/createGame/buildGameContext'
 
 describe("Returns game context with board and players", () => {
   test("Returns game context", () => {

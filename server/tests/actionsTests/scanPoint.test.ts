@@ -1,4 +1,4 @@
-import {expect, jest, test} from '@jest/globals';
+import {expect, jest, describe, test} from '@jest/globals';
 import { scanPoint } from '../../src/actions/scanPoint';
 import { boardWithTerrainPlayers } from '../helpers/testBoards';
 

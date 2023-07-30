@@ -1,0 +1,15 @@
+{
+  "name": "bitscraft-server",
+  "version": "1.0.0",
+  "description": "Bits Craft",
+  "main": "../dist/main.js",
+  "scripts": {
+    "test": "npm run test",
+    "build": "npm run jest && tsc",
+    "dev": "tsc && cd ../dist && node main.js",
+    "jest": "jest",
+    "play": "cd ../dist && node main.js"
+  },
+  "author": "CM",
+  "license": "MIT"
+}

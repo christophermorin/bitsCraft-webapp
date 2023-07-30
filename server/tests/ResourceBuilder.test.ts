@@ -1,5 +1,5 @@
-import {expect, jest, test} from '@jest/globals';
-import {ResourceBuilder} from '../src/setup/buildResources/ResourceBuilder'
+import {expect, jest, describe, beforeEach, test} from '@jest/globals';
+import {ResourceBuilder} from '../src/createGame/buildResources/ResourceBuilder'
 import { boardWithTerrainPlayers } from './helpers/testBoards';
 import { GameBoard } from '../types/main';
 

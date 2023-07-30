@@ -1,5 +1,5 @@
 import { boardWithTerrainPlayers } from "./testBoards";
-import { PlayerBuilder } from "../../src/setup/buildPlayers/PlayerBuilder";
+import { PlayerBuilder } from "../../src/createGame/buildPlayers/PlayerBuilder";
 import { GameContext } from "../../types/main";
 
 export function testContext(): GameContext {
