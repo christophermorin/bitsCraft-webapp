@@ -1,0 +1,31 @@
+.board {
+  /* grid-template-rows: repeat(auto-fill, minmax(2px, 2px)); */
+  display: flex;
+  overflow: scroll;
+  flex-direction: column;
+  /* Optional: Add gap between grid items */
+}
+
+.inner {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.border{
+  border: 1px solid grey;
+}
+
+.grass{
+  /* background-image: url("../public/terrain/Grass-2.png"); */
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.border:hover{
+  border: 1px solid red;
+}

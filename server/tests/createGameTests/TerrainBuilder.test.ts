@@ -12,12 +12,12 @@ describe("TerrainBuilder and methods", () => {
   }),
   test("Calling buildTerrain places adverse terrain", () => {
     const builder = new TerrainBuilder(defaultBoard());
-    builder.buildTerrain(" 🗻");
+    builder.buildTerrain("mountain");
     // Not a good test at all, using a nested loop. Bad bad bad.
     let hasTerrain: boolean = false;
     for (let i = 0; i < builder.board.length; i++){
       for (let j = 0; j < builder.board[0].length; j++){
-        if(builder.board[i][j].face === " 🗻"){
+        if(builder.board[i][j].terrain === "mountain"){
           hasTerrain = true;
           break;
         }
@@ -27,6 +27,6 @@ describe("TerrainBuilder and methods", () => {
   });
   test("buildTerrain throws error when not passed a terrain", () => {
     const builder = new TerrainBuilder(defaultBoard());
-    expect(() => builder.buildTerrain("")).toThrowError("Terrain Builder requires a terrain: 🗻, 🌲")
+    expect(() => builder.buildTerrain("")).toThrowError("Terrain Builder requires a terrain type")
   })
 })

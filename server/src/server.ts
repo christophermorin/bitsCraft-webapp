@@ -1,13 +1,8 @@
-import Fastify, { FastifyInstance, RouteShorthandOptions } from 'fastify'
-import { buildApp } from './app'
+import { app } from "./app";
 
-const server: FastifyInstance = buildApp({
-  logger: true
-})
+const server = app()
+const port = 3000;
 
-server.listen({ port: 3000 }, (err, address) => {
-  if (err) {
-    server.log.error(err)
-    process.exit(1)
-  }
+server.listen(port, () => {
+  console.log(`Server is running on port ${port}`)
 })

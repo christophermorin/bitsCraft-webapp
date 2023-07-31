@@ -9,7 +9,7 @@ export class TerrainBuilder {
 
   buildTerrain(terrain: string) {
     if (!terrain){
-      throw new Error("Terrain Builder requires a terrain: 🗻, 🌲");
+      throw new Error("Terrain Builder requires a terrain type");
     }
     this.placeTerrainTile(this.board, terrain);
   }
@@ -41,10 +41,9 @@ export class TerrainBuilder {
       }
 
       seen[point.y][point.x] = true;
-      board[point.y][point.x].face = terrain;
+      board[point.y][point.x].terrain = terrain;
       
-      if (terrain === " 🗻"){
-        board[point.y][point.x].impassable = true;
+      if (terrain === "mountain"){
         board[point.y][point.x].terrain = "mountain";
       } else {
         board[point.y][point.x].terrain = "forest";

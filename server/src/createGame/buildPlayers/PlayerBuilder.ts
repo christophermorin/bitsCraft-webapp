@@ -11,6 +11,7 @@ export class PlayerBuilder {
     const seen = Array.from({ length: this.board.length }, () =>
       Array<boolean>(this.board[0].length).fill(false)
     );
+    
     const player: Player = {
       name: n === 1 ? "Player One" : "Player Two",
       headquarters: [],
@@ -27,17 +28,17 @@ export class PlayerBuilder {
     let hqBottom: Tile[] = [];
     
     if (player.name === "Player One") {
-      hqTop = this.board[2].filter((tile) => tile.face === "\x1b[34m" + "\x1b[1m" +  " HQ" + "\x1b[0m");
-      hqBottom = this.board[3].filter((tile) => tile.face === "\x1b[34m" + "\x1b[1m" +  " HQ" + "\x1b[0m");
+      hqTop = this.board[1].filter((tile) => tile.owner === "Player One");
+      hqBottom = this.board[2].filter((tile) => tile.owner === "Player One");
       player.headquarters = player.headquarters.concat(hqTop, hqBottom);
     }
 
     if (player.name === "Player Two") {
       hqBottom = this.board[this.board.length - 2].filter(
-        (tile) => tile.face === "\x1b[31m" + "\x1b[1m" +  " HQ" + "\x1b[0m"
+        (tile) => tile.owner === "Player Two"
       );
       hqTop = this.board[this.board.length - 3].filter(
-        (tile) => tile.face === "\x1b[31m" + "\x1b[1m" +  " HQ" + "\x1b[0m"
+        (tile) => tile.owner === "Player Two"
       );
       player.headquarters = player.headquarters.concat(hqBottom, hqTop);
     }

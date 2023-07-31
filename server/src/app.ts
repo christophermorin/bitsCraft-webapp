@@ -1,28 +1,21 @@
-import Fastify, { FastifyInstance, RouteShorthandOptions } from "fastify";
-import { buildGameContext } from "./createGame/buildGameContext";
+import express, { NextFunction } from 'express';
+import dotenv from 'dotenv';
+import cors from 'cors';
+import { buildGameContext } from './createGame/buildGameContext';
 
-export function buildApp(opts = {}) {
-  const app = Fastify(opts);
-  const context = buildGameContext();
+export function app(){
+  dotenv.config();
 
-  const test: RouteShorthandOptions = {
-  schema: {
-    response: {
-      200: {
-        type: 'object',
-        properties: {
-          context: {
-           board: "array"
-          }
-        }
-      }
-    }
-  }
-}
+  const app = express()
+  // app.locals
+ app.use(cors())
 
-  app.get("/", test, async function (request, reply) {
-    return { context };
+  const context = buildGameContext()
+
+  app.get('/', (req, res) => {
+    res.send((context));
   });
 
   return app;
 }
+

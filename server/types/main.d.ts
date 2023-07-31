@@ -12,22 +12,30 @@ export type GameContext = {
   }
 }
 
-export type Tile = {
-  face: string, // 🗻💎 . etc
-  fog: string,
-  terrain: string, // open, forest, impassable, building, unit, resource, headquarters
-  isBorder: boolean,
-  impassable: boolean,
-  owner: string | null,
-  health: number | null,
-  value: number | null,
-  point: {y: number, x: number}
-}
-
 export type Player = {
   name: string,
   headquarters: Tile[],
   vision: boolean[][],
   resources: number,
 }
+
+export type Unit = {
+  class: string,
+  owner: string,
+  health: number,
+  attack: number,
+  defence: number,
+  movement: number
+}
+
+export type Tile = {
+  terrain: string,
+  unit: Unit | null 
+  owner: string | null,
+  health: number | null,
+  value: number | null,
+  point: {y: number, x: number}
+}
+
+
 

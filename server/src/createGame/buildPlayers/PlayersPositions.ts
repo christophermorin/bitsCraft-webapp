@@ -35,8 +35,7 @@ export class PlayerPositions {
       const hqTile = this.board[y+move[0]][x+move[1]];
 
       // Sets HQ color to blue, bold, then resets back to default. Reset prevents all text after HQ from also turning blue.
-      hqTile.face = "\x1b[34m" + "\x1b[1m" +  " HQ" + "\x1b[0m";
-      hqTile.terrain = "structure";
+      hqTile.terrain = "HQ";
       hqTile.owner = "Player One";
       hqTile.health = 100;
       hqTile.point = {y: y+move[0], x: x+move[1] };
@@ -45,8 +44,8 @@ export class PlayerPositions {
     // Places starter resource nodes next to base HQs
      for (let i = 0; i < nodeDirs.length; i++){
       let move = nodeDirs[i];
-      this.board[y+move[0]][x+move[1]].face = " 💎";
       this.board[y+move[0]][x+move[1]].value = 500;
+      this.board[y+move[0]][x+move[1]].terrain = "resource";
     }
   }
 
@@ -67,9 +66,7 @@ export class PlayerPositions {
     for (let i = 0; i < baseDirs.length; i++){
       let move = baseDirs[i];
       const hqTile = this.board[y+move[0]][x+move[1]]
-      // Sets HQ color to red, bold, then resets back to default. Reset prevents all text after HQ from also turning red.
-      hqTile.face = "\x1b[31m" + "\x1b[1m" +  " HQ" + "\x1b[0m";
-      hqTile.terrain = "structure";
+      hqTile.terrain = "HQ";
       hqTile.owner = "Player Two";
       hqTile.health = 100;
       hqTile.point = {y: y+move[0], x: x+move[1] };
@@ -77,9 +74,11 @@ export class PlayerPositions {
 
     for (let i = 0; i < nodeDirs.length; i++){
       let move = nodeDirs[i];
-      this.board[y+move[0]][x+move[1]].face = " 💎";
+      this.board[y+move[0]][x+move[1]].terrain = "resource";
       this.board[y+move[0]][x+move[1]].value = 500;
     }
+
+    return
   }
 
   private setBaseLocation(player: number) {
@@ -87,7 +86,7 @@ export class PlayerPositions {
     let xPos: number = 0;
 
     if (player === 1) {
-      yPos = 2;
+      yPos = 1;
     } else {
       yPos = this.board.length - 3;
     }
